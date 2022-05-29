@@ -14,13 +14,49 @@ export const UsersInfo = () => {
             .then(json => setUserData(json))
     }, [])
 
+    const onSortCityClick=()=>{
+        // @ts-ignore
+        const sortUserData = [...userData].sort((a, b) => {
+                if (a.address.city > b.address.city) {
+                    // eslint-disable-next-line @typescript-eslint/no-magic-numbers
+                    return 1;
+                }
+                if (a.address.city < b.address.city) {
+                    // eslint-disable-next-line @typescript-eslint/no-magic-numbers
+                    return -1;
+                }
+            // eslint-disable-next-line @typescript-eslint/no-magic-numbers
+                return 0;
+            }
+        )
+        setUserData(sortUserData)
+    }
+
+    const onSortCompanyClick=()=>{
+        // @ts-ignore
+        const sortUserData = [...userData].sort((a, b) => {
+                if (a.company.name > b.company.name) {
+                    // eslint-disable-next-line @typescript-eslint/no-magic-numbers
+                    return 1;
+                }
+                if (a.company.name < b.company.name) {
+                    // eslint-disable-next-line @typescript-eslint/no-magic-numbers
+                    return -1;
+                }
+                // eslint-disable-next-line @typescript-eslint/no-magic-numbers
+                return 0;
+            }
+        )
+        setUserData(sortUserData)
+    }
+
     return (
         <div className='container'>
             <div className={style.wrapperUsers}>
                 <div className={style.wrapperUsers__sort}>
                     <p className={style.wrapperUsers__sort_title}>Сортировка</p>
-                    <button className={style.wrapperUsers__sort_btn}>по городу</button>
-                    <button className={style.wrapperUsers__sort_btn}>по компании
+                    <button onClick={onSortCityClick} className={style.wrapperUsers__sort_btn}>по городу</button>
+                    <button onClick={onSortCompanyClick} className={style.wrapperUsers__sort_btn}>по компании
                     </button>
                 </div>
                 <div className={style.wrapperUsers__users}>

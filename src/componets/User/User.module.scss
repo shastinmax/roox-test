@@ -4,7 +4,7 @@
   width: 100%;
   padding: 10px;
   background: $background-user;
-  margin-bottom: 10px;
+  margin-bottom: 22px;
   border-radius: 8px;
 
   &_span{
@@ -21,6 +21,7 @@
   &_text{
     font-size: 11px;
     line-height: 13px;
+    margin-bottom: 7px;
   }
   &_btn{
     cursor: pointer;

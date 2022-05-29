@@ -5,6 +5,7 @@ import {UserType} from "../../types/usersType";
 import style from './User.module.scss'
 
 export const User = (props: UserType) => {
+    console.log('user')
     const {name, city, company} = props
     return (
         <div className={style.wrapper__user}>
