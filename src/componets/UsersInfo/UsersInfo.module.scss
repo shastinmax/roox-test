@@ -24,9 +24,6 @@
       border-radius: 5px;
       color: $color-text-btn;
       margin-bottom: 10px;
-      font-weight: 400;
-      font-size: 12px;
-      line-height: 14px;
       border: none;
       cursor: pointer;
     }
@@ -36,5 +33,11 @@
     max-width: 513px;
     width: 100%;
     padding: 19px 59px 25px 34px;
+  }
+  &__users_title{
+    margin: 19px 0 17px;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 16px;
   }
 }

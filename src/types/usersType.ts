@@ -1,4 +1,4 @@
-export type usersType= {
+export type UsersInfoType= {
     id: number,
     name: string,
     username: string,
@@ -12,5 +12,17 @@ export type usersType= {
             lat: string,
             lng: string
         }
+    },
+    phone: string,
+    website: string,
+    company: {
+        name: string,
+        catchPhrase: string,
+        bs: string
     }
+}
+export type UserType={
+    name: string,
+    city:string,
+    company:string
 }

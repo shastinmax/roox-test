@@ -1,17 +1,18 @@
 import React, {useEffect, useState} from "react";
 
-import {usersType} from "../../types/usersType";
+import {UsersInfoType} from "../../types/usersType";
+import {User} from "../User/User";
 
 import style from "./UsersInfo.module.scss";
 
 export const UsersInfo = () => {
-    const [userData, setUserData] = useState<Array<usersType>>([])
+    const [userData, setUserData] = useState<Array<UsersInfoType>>([])
 
     useEffect(() => {
-        fetch('https://jsonplaceholder.typicode.com/todos/1')
+        fetch('https://jsonplaceholder.typicode.com/users')
             .then(response => response.json())
             .then(json => setUserData(json))
-    },[])
+    }, [])
 
     return (
         <div className='container'>
@@ -26,8 +27,10 @@ export const UsersInfo = () => {
                     <h2 className={style.wrapperUsers__users_title}>Список
                         пользователей</h2>
                     {userData.map(user => (
-                        <User key={user.id}/>
+                        <User key={user.id} name={user.name} city={user.address.city}
+                              company={user.company.name}/>
                     ))}
+                    <p className={style.wrapperUsers__users_footer}> Найдено {userData.length} пользователей </p>
                 </div>
             </div>
         </div>

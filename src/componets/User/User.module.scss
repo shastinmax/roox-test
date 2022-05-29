@@ -1,0 +1,30 @@
+@import "src/assets/styles/styles";
+.wrapper__user{
+  max-width: 420px;
+  width: 100%;
+  padding: 10px;
+  background: $background-user;
+  margin-bottom: 10px;
+  border-radius: 8px;
+
+  &_span{
+    font-size: 11px;
+    line-height: 13px;
+    color: $color-text-span;
+    margin: 0 7px 7px 0;
+  }
+  &_footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &_text{
+    font-size: 11px;
+    line-height: 13px;
+  }
+  &_btn{
+    cursor: pointer;
+    color: $background-button;
+  }
+}
+
