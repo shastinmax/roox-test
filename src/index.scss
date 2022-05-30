@@ -1,4 +1,6 @@
 @import 'assets/styles/Normolize.css';
+@import 'assets/styles/styles.scss';
+
 body {
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
@@ -9,4 +11,14 @@ body {
 .container {
   max-width: 665px;
   margin: 0 auto;
+}
+
+.btn {
+  padding: 5px 15px;
+  background: $background-button;
+  border-radius: 5px;
+  color: $color-text-btn;
+  margin-bottom: 10px;
+  border: none;
+  cursor: pointer;
 }

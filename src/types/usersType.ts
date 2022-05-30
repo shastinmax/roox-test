@@ -1,4 +1,5 @@
-export type UsersInfoType= {
+// UsersInfo,User
+export type UsersInfoType = {
     id: number,
     name: string,
     username: string,
@@ -21,8 +22,18 @@ export type UsersInfoType= {
         bs: string
     }
 }
-export type UserType={
-    name: string,
-    city:string,
-    company:string
+export type UserType = {
+    user: UsersInfoType
+    callback: (user:UsersInfoType) => void
+}
+
+// UserChanged
+export type UserChangedPropsType={
+    user:UsersInfoType
+}
+
+// InputChanged
+export type InputChangedPropsType={
+    title:string
+    name:string
 }

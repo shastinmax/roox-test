@@ -1,18 +1,25 @@
 import React, {useEffect, useState} from "react";
 
 import {UsersInfoType} from "../../types/usersType";
+import {Button} from "../common/Button/Button";
 import {User} from "../User/User";
+import {UserChanged} from "../UserChanged/UserChanged";
 
 import style from "./UsersInfo.module.scss";
 
 export const UsersInfo = () => {
     const [userData, setUserData] = useState<Array<UsersInfoType>>([])
+    const [userDescr, setUserDescr] = useState<UsersInfoType | null>(null)
 
     useEffect(() => {
         fetch('https://jsonplaceholder.typicode.com/users')
             .then(response => response.json())
             .then(json => setUserData(json))
     }, [])
+
+  const setUser=(user:UsersInfoType)=>{
+      setUserDescr(user)
+    }
 
     const onSortCityClick=()=>{
         // @ts-ignore
@@ -55,19 +62,18 @@ export const UsersInfo = () => {
             <div className={style.wrapperUsers}>
                 <div className={style.wrapperUsers__sort}>
                     <p className={style.wrapperUsers__sort_title}>Сортировка</p>
-                    <button onClick={onSortCityClick} className={style.wrapperUsers__sort_btn}>по городу</button>
-                    <button onClick={onSortCompanyClick} className={style.wrapperUsers__sort_btn}>по компании
-                    </button>
+                    <Button text='по городу' onHandlerCLick={onSortCityClick}/>
+                    <Button text='по компании' onHandlerCLick={onSortCompanyClick}/>
                 </div>
-                <div className={style.wrapperUsers__users}>
+                {userDescr && <UserChanged user={userDescr}/>}
+                {!userDescr && <div className={style.wrapperUsers__users}>
                     <h2 className={style.wrapperUsers__users_title}>Список
                         пользователей</h2>
                     {userData.map(user => (
-                        <User key={user.id} name={user.name} city={user.address.city}
-                              company={user.company.name}/>
+                        <User key={user.id} user={user} callback={setUser}/>
                     ))}
                     <p className={style.wrapperUsers__users_footer}> Найдено {userData.length} пользователей </p>
-                </div>
+                </div>}
             </div>
         </div>
     );

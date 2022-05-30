@@ -1,0 +1,26 @@
+@import 'src/assets/styles/styles';
+.userChanged {
+  max-width: 438px;
+  width: 100%;
+  padding: 13px 46px 480px 36px;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+
+    &_title {
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 16px;
+    }
+  }
+
+  &__main {
+    width: 100%;
+    padding: 12px 20px 6px 19px;
+    border: 1px solid $background-user;
+    border-radius: 8px
+  }
+
+}
