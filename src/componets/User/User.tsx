@@ -5,7 +5,6 @@ import {UserType} from "../../types/usersType";
 import style from './User.module.scss'
 
 export const User = (props: UserType) => {
-    console.log('user')
     const {user, callback} = props
     const {name,address,company} = user
 

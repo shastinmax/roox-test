@@ -24,16 +24,27 @@ export type UsersInfoType = {
 }
 export type UserType = {
     user: UsersInfoType
-    callback: (user:UsersInfoType) => void
+    callback: (user: UsersInfoType) => void
 }
 
 // UserChanged
-export type UserChangedPropsType={
-    user:UsersInfoType
+export type UserChangedPropsType = {
+    user: UsersInfoType
+    valueDisabled: boolean
+    callback:(value:boolean)=>void
 }
 
 // InputChanged
-export type InputChangedPropsType={
-    title:string
-    name:string
+export type InputChangedPropsType = {
+    title: string
+    name: string
+    disabled: boolean
+}
+
+// UserSetting Type
+export type UserSettingsType = {
+    formikName: string
+    title: string
+    inputType: string
+    data: string | undefined
 }

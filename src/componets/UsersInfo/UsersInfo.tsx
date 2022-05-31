@@ -10,6 +10,7 @@ import style from "./UsersInfo.module.scss";
 export const UsersInfo = () => {
     const [userData, setUserData] = useState<Array<UsersInfoType>>([])
     const [userDescr, setUserDescr] = useState<UsersInfoType | null>(null)
+    const[disabled,setDisabled]=useState<boolean>(true)
 
     useEffect(() => {
         fetch('https://jsonplaceholder.typicode.com/users')
@@ -57,6 +58,10 @@ export const UsersInfo = () => {
         setUserData(sortUserData)
     }
 
+    const onEditClick=(value:boolean)=>{
+        setDisabled(value)
+    }
+
     return (
         <div className='container'>
             <div className={style.wrapperUsers}>
@@ -65,7 +70,7 @@ export const UsersInfo = () => {
                     <Button text='по городу' onHandlerCLick={onSortCityClick}/>
                     <Button text='по компании' onHandlerCLick={onSortCompanyClick}/>
                 </div>
-                {userDescr && <UserChanged user={userDescr}/>}
+                {userDescr && <UserChanged user={userDescr} valueDisabled={disabled} callback={onEditClick}/>}
                 {!userDescr && <div className={style.wrapperUsers__users}>
                     <h2 className={style.wrapperUsers__users_title}>Список
                         пользователей</h2>

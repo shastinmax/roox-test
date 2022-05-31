@@ -1,13 +1,12 @@
 import React from 'react';
 
 import {ButtonTypeProps} from "../../../types/ButtonType";
-import style from "../../UsersInfo/UsersInfo.module.scss";
 
 export const Button = (props:ButtonTypeProps) => {
-    const{text,onHandlerCLick}=props
+    const{text,onHandlerCLick,disabled}=props
 
     return (
-        <button onClick={onHandlerCLick} className='btn'>{text}</button>
+        <button onClick={onHandlerCLick} className='btn' disabled={disabled}>{text}</button>
     );
 };
 

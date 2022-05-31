@@ -2,14 +2,16 @@ import React from 'react';
 
 import {InputChangedPropsType} from "../../../types/usersType";
 
-export const InputChanged = (props:InputChangedPropsType) => {
-    const {title,name}=props
+import style from './InputChanged.module.scss'
+
+export const InputChanged = (props: InputChangedPropsType) => {
+    const {title, name, disabled} = props
 
     return (
         <div>
-            <label>
-                <span>{title}</span>
-                <input placeholder={name} type="text"/>
+            <label className={style.input}>
+                <p className={style.input__title}>{title}</p>
+                <input className={style.input__input} value={name} type="text" disabled={disabled}/>
             </label>
         </div>
     );
