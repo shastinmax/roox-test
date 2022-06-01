@@ -12,7 +12,7 @@ import style from './UserChanged.module.scss'
 export const UserChanged = ({user}: UserChangedPropsType) => {
     const {name, username, email, address, phone, website} = user
     const [disabled, setDisabled] = useState<boolean>(true);
-    const [buttonDisabled, setButtonDisabled] = useState<boolean>(true);
+    const [isButtonDisabled, setIsButtonDisabled] = useState<boolean>(true);
     const [modal, setModal] = useState<boolean>(false);
     const [valuesFormik, setValuesFormik] = useState<any>('');
 
@@ -53,8 +53,7 @@ export const UserChanged = ({user}: UserChangedPropsType) => {
         comment: '',
     }
 
-    // @ts-ignore
-    const formik = useFormik({
+    const formik: any = useFormik({
         initialValues,
         validate: values => checkValidation(formik, values, setDisabled),
         onSubmit: (values) => {
@@ -67,7 +66,7 @@ export const UserChanged = ({user}: UserChangedPropsType) => {
 
     const onChangedUserClick = (value: boolean) => {
         setDisabled(value)
-        setButtonDisabled(value)
+        setIsButtonDisabled(value)
     }
     const closeModal = (value: boolean) => {
         setModal(value)
@@ -94,7 +93,7 @@ export const UserChanged = ({user}: UserChangedPropsType) => {
                                         key={d.formikName}>
                                         <p className={style.userChanged__main_title}>{d.title}</p>
                                         <input className={style.userChanged__main_input}
-                                               disabled={buttonDisabled}
+                                               disabled={isButtonDisabled}
                                                id={d.formikName}
                                                type='text'
                                                placeholder={d.formikName}
@@ -119,7 +118,7 @@ export const UserChanged = ({user}: UserChangedPropsType) => {
                             </label>
                         </div>
                         <Button className={disabled ? 'disabled' : 'btn'}
-                                disabled={buttonDisabled}
+                                disabled={isButtonDisabled}
                                 text='Отправить'/>
                     </form>
                 </div>
