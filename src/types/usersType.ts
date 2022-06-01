@@ -30,8 +30,8 @@ export type UserType = {
 // UserChanged
 export type UserChangedPropsType = {
     user: UsersInfoType
-    valueDisabled: boolean
-    callback:(value:boolean)=>void
+    // valueDisabled: boolean
+    // callback:(value:boolean)=>void
 }
 
 // InputChanged

@@ -9,9 +9,10 @@ import {SuperModal} from "../common/SuperModal/SuperModal";
 
 import style from './UserChanged.module.scss'
 
-export const UserChanged = ({user, valueDisabled, callback}: UserChangedPropsType) => {
+export const UserChanged = ({user}: UserChangedPropsType) => {
     const {name, username, email, address, phone, website} = user
     const [disabled, setDisabled] = useState<boolean>(true);
+    const [buttonDisabled, setButtonDisabled] = useState<boolean>(true);
     const [modal, setModal] = useState<boolean>(false);
     const [valuesFormik, setValuesFormik] = useState<any>('');
 
@@ -64,10 +65,11 @@ export const UserChanged = ({user, valueDisabled, callback}: UserChangedPropsTyp
         }
     })
 
-    const onChangedUserClick = (value:boolean) => {
+    const onChangedUserClick = (value: boolean) => {
         setDisabled(value)
+        setButtonDisabled(value)
     }
-    const closeModal = (value:boolean) => {
+    const closeModal = (value: boolean) => {
         setModal(value)
     }
     return (
@@ -92,7 +94,7 @@ export const UserChanged = ({user, valueDisabled, callback}: UserChangedPropsTyp
                                         key={d.formikName}>
                                         <p className={style.userChanged__main_title}>{d.title}</p>
                                         <input className={style.userChanged__main_input}
-                                               disabled={disabled}
+                                               disabled={buttonDisabled}
                                                id={d.formikName}
                                                type='text'
                                                placeholder={d.formikName}
@@ -110,14 +112,14 @@ export const UserChanged = ({user, valueDisabled, callback}: UserChangedPropsTyp
                             <label className={style.userChanged__textarea}>
                                 <p className={style.userChanged__textarea_title}>Comment</p>
                                 <textarea className={style.userChanged__textarea_textarea}
-                                          disabled={valueDisabled}
+                                          disabled={disabled}
                                           name='comment'
                                           onChange={formik.handleChange}
                                           value={formik.values.comment}/>
                             </label>
                         </div>
                         <Button className={disabled ? 'disabled' : 'btn'}
-                                disabled={disabled}
+                                disabled={buttonDisabled}
                                 text='Отправить'/>
                     </form>
                 </div>
