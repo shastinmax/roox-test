@@ -22,3 +22,12 @@ body {
   border: none;
   cursor: pointer;
 }
+.disabled{
+  padding: 5px 15px;
+  background: $background-button-disabled;
+  border-radius: 5px;
+  color: $color-text-btn;
+  margin-bottom: 10px;
+  border: none;
+
+}

@@ -10,7 +10,7 @@ const App = () => {
         setTimeout(() => {
             setPreloader(false)
             // eslint-disable-next-line @typescript-eslint/no-magic-numbers
-        }, 3000)
+        }, 1500)
     }
     useEffect(() => {
         showPreloader()

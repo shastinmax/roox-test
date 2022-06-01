@@ -67,8 +67,8 @@ export const UsersInfo = () => {
             <div className={style.wrapperUsers}>
                 <div className={style.wrapperUsers__sort}>
                     <p className={style.wrapperUsers__sort_title}>Сортировка</p>
-                    <Button text='по городу' onHandlerCLick={onSortCityClick}/>
-                    <Button text='по компании' onHandlerCLick={onSortCompanyClick}/>
+                    <Button className='btn' text='по городу' onHandlerCLick={onSortCityClick}/>
+                    <Button className='btn' text='по компании' onHandlerCLick={onSortCompanyClick}/>
                 </div>
                 {userDescr && <UserChanged user={userDescr} valueDisabled={disabled} callback={onEditClick}/>}
                 {!userDescr && <div className={style.wrapperUsers__users}>

@@ -11,6 +11,7 @@
   }
 
   &__header {
+    width: 100%;
     display: flex;
     justify-content: space-between;
     margin-bottom: 10px;
@@ -38,7 +39,11 @@
       margin-bottom: 10px;
       padding: 5px 0 5px 10px;
       border: 1px solid $color-border-input;
-      border-radius: 5px
+      border-radius: 5px;
+
+      &:disabled {
+        color: rgba(0, 0, 0, 0.3)
+      }
     }
   }
 
